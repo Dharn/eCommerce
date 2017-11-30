@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="formapp">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/app.css">
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/module.js"></script>
+<script type="text/javascript" src="js/formation.js"></script>
+<script type="text/javascript" src="js/ressource.js"></script>
+<script type="text/javascript" src="js/eleve.js"></script>
+<script type="text/javascript" src="js/formateur.js"></script>
+<title>Formation</title>
+</head>
+<body>
+	<div class="container">
+		<section ng-controller="SwitchController as switchCtrl">
+			<ul class="nav nav-pills">
+				<li ng-class="{active:switchCtrl.isOnglet('module')}"><a
+					ng-click="switchCtrl.setOnglet('module')">Module</a></li>
+				<li ng-class="{active:switchCtrl.isOnglet('formation')}"><a
+					ng-click="switchCtrl.setOnglet('formation')">Formation</a></li>
+				<li ng-class="{active:switchCtrl.isOnglet('ressource')}"><a
+					ng-click="switchCtrl.setOnglet('ressource')">Ressource</a></li>
+				<li ng-class="{active:switchCtrl.isOnglet('formateur')}"><a
+					ng-click="switchCtrl.setOnglet('formateur')">Formateur</a></li>
+				<li ng-class="{active:switchCtrl.isOnglet('eleve')}"><a
+					ng-click="switchCtrl.setOnglet('eleve')">Eleve</a></li>
+			</ul>
+
+			<module ng-show="switchCtrl.isOnglet('module')"></module>
+
+			<formation ng-show="switchCtrl.isOnglet('formation')"></formation>
+
+			<ressource ng-show="switchCtrl.isOnglet('ressource')"></ressource>
+
+			<eleve ng-show="switchCtrl.isOnglet('eleve')"></eleve>
+			
+			<formateur ng-show="switchCtrl.isOnglet('formateur')"></formateur>
+		</section>
+	</div>
+</body>
+</html>
